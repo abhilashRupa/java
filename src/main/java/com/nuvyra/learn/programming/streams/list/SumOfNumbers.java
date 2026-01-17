@@ -2,7 +2,10 @@ package com.nuvyra.learn.programming.streams.list;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
+
+/*
+* Write a program to find the sum of all elements in a list using Java Stream API
+* */
 
 public class SumOfNumbers {
 
