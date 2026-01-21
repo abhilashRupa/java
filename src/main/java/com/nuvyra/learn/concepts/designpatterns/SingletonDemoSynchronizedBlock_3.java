@@ -16,14 +16,10 @@ public class SingletonDemoSynchronizedBlock_3 {
 
         });
 
-        Thread t2 = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                LogManagerSynchronizedBlock logManagerSynchronizedBlock2 = LogManagerSynchronizedBlock
-                        .getLogManagerSynchronized();
-                System.out.println(logManagerSynchronizedBlock2.hashCode());
-            }
+        Thread t2 = new Thread(() -> {
+            LogManagerSynchronizedBlock logManagerSynchronizedBlock2 = LogManagerSynchronizedBlock
+                    .getLogManagerSynchronized();
+            System.out.println(logManagerSynchronizedBlock2.hashCode());
         });
 
         t1.start();
