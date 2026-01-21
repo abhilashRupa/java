@@ -1,6 +1,6 @@
 package com.nuvyra.learn.concepts.designpatterns;
 
-public class SingletonDemoSynchronizedBlock_3 {
+public class SingletonDemoSynchronizedBlock_4 {
 
     public static void main(String[] args) {
         Thread t1 = new Thread(new Runnable() {
