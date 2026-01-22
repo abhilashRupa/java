@@ -38,7 +38,7 @@ public class RotateArrayClockWise {
 
         arrayClockWise.rotateClockWise(numbers, k);
 
-        System.out.println("After Anti clockwise rotation:"+Arrays.toString(numbers));
+        System.out.println("After clockwise rotation:"+Arrays.toString(numbers));
         
     }
 
