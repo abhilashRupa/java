@@ -1,0 +1,15 @@
+The factory design pattern is used when we have a superclass with multiple subclasses and based on input, 
+we need to return one of the subclasses. 
+
+This pattern takes out the responsibility of the instantiation of a Class from the client program to the factory class.
+
+We can apply a singleton pattern on the factory class or make the factory method static.
+
+
+Super class in factory design pattern can be an interface, abstract class or a normal java class. 
+
+Factory Design Pattern Examples in JDK
+java.util.Calendar, ResourceBundle and NumberFormat getInstance() methods uses Factory pattern.
+valueOf() method in wrapper classes like Boolean, Integer etc.
+Optional.of()
+Executors. :to create thread pool
