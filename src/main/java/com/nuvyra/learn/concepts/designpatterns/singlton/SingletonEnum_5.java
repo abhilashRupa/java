@@ -1,4 +1,4 @@
-package com.nuvyra.learn.concepts.designpatterns;
+package com.nuvyra.learn.concepts.designpatterns.singlton;
 
 public class SingletonEnum_5 {
 

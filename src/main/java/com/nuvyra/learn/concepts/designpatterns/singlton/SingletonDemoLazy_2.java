@@ -1,4 +1,4 @@
-package com.nuvyra.learn.concepts.designpatterns;
+package com.nuvyra.learn.concepts.designpatterns.singlton;
 
 public class SingletonDemoLazy_2 {
     public static void main(String[] args) {
