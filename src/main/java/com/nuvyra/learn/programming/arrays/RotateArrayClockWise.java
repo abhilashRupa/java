@@ -29,31 +29,37 @@ rotate 2 steps to the right: [3,99,-1,-100]
 public class RotateArrayClockWise {
 
     public static void main(String[] args) {
-         
+
         RotateArrayClockWise arrayClockWise = new RotateArrayClockWise();
 
-        int[] numbers = {1,2,3,4,5,6,7};
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7 };
         int k = 3;
-        System.out.println("Before clockwise rotation:"+Arrays.toString(numbers));
+        System.out.println("Before clockwise rotation:" + Arrays.toString(numbers));
 
         arrayClockWise.rotateClockWise(numbers, k);
 
-        System.out.println("After clockwise rotation:"+Arrays.toString(numbers));
-        
+        System.out.println("After clockwise rotation:" + Arrays.toString(numbers));
+
     }
 
-     private void rotateClockWise(int[] nums, int k) {
+    private void rotateClockWise(int[] nums, int k) {
 
         int arrSize = nums.length;
-        k = k%arrSize;
-        reverseClockWise(nums, 0, arrSize-1);
-        reverseClockWise(nums, 0, k-1);
-        reverseClockWise(nums, k, arrSize-1);
-        
+
+        // Handle cases where k is larger than array length
+        k = k % arrSize;
+
+        // Step 1: Reverse the entire array
+        reverseClockWise(nums, 0, arrSize - 1);
+        // Step 2: Reverse the first K elements
+        reverseClockWise(nums, 0, k - 1);
+        // Step 3: Reverse the remaining 'n-k' elements
+        reverseClockWise(nums, k, arrSize - 1);
+
     }
 
-    private void reverseClockWise(int[] numbers, int start, int end){
-        while (start<end) {
+    private void reverseClockWise(int[] numbers, int start, int end) {
+        while (start < end) {
             int temp = numbers[start];
             numbers[start] = numbers[end];
             numbers[end] = temp;

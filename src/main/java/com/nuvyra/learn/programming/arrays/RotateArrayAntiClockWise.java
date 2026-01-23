@@ -27,24 +27,30 @@ rotate 2 steps to the right: [3,99,-1,-100]
 public class RotateArrayAntiClockWise {
     public static void main(String[] args) {
 
-        int[] numbers = { 1,2,3,4,5,6,7 };
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7 };
         int k = 3;
 
-        System.out.println("before Anti clockwise rotation:"+ Arrays.toString(numbers));
+        System.out.println("before Anti clockwise rotation:" + Arrays.toString(numbers));
         rotateAntiClockWise(numbers, k);
-        System.out.println("After Anti clockwise rotation:"+ Arrays.toString(numbers));
+        System.out.println("After Anti clockwise rotation:" + Arrays.toString(numbers));
 
     }
 
     private static void rotateAntiClockWise(int[] numbers, int k) {
 
         int arraySize = numbers.length;
-        k = k%arraySize;
 
-        reverseAntiClock(numbers, 0, k-1);
-        reverseAntiClock(numbers, k, arraySize-1);
-        reverseAntiClock(numbers, 0, arraySize-1);
+        // Handle cases where k is larger than array length
+        k = k % arraySize;
 
+        // Step 1: Reverse the first K elements
+        reverseAntiClock(numbers, 0, k - 1);
+
+        // Step 2: Reverse the remaining 'n-k' elements
+        reverseAntiClock(numbers, k, arraySize - 1);
+
+        // Step 3: Reverse the entire array
+        reverseAntiClock(numbers, 0, arraySize - 1);
 
     }
 
