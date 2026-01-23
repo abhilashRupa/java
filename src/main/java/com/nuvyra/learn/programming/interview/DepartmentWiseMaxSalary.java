@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/* write Java program to find the department wise maximum salary */
+/* write Java program to find the department wise maximum salary using java 8 and streams*/
 
 public class DepartmentWiseMaxSalary {
     public static void main(String[] args) {
