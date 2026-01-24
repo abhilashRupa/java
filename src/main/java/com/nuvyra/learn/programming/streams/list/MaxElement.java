@@ -18,7 +18,26 @@ public class MaxElement {
         approach3(numberList);
         approach4(numberList);
         approach5(numberList);
+        approach6(numberList);
+        approach7(numberList);
 
+
+    }
+
+    // Best solution
+    private static void approach6(List<Integer> numberList) {
+        System.out.println("\napproach 6: using direct max and passing Integer CompareTo");
+        Optional<Integer> maxElement = numberList.stream()
+                .max(Integer::compareTo);
+        System.out.println("Max element is: " + maxElement.get());
+    }
+
+    private static void approach7(List<Integer> numberList) {
+        System.out.println("\napproach 7: using sort based on comparing int");
+        Optional<Integer> maxElement = numberList.stream()
+                .sorted(Comparator.comparingInt(Integer::intValue).reversed())
+                .findFirst();
+        System.out.println("Max element is: " + maxElement.get());
 
     }
 
@@ -45,11 +64,10 @@ public class MaxElement {
     private static void approach3(List<Integer> numberList) {
 
         System.out.println("\napproach 3: using max function");
-    
 
         int maxElement = numberList.stream()
-        .mapToInt(Integer::intValue)
-        .max().orElseThrow(RuntimeException::new);
+                .mapToInt(Integer::intValue)
+                .max().orElseThrow(RuntimeException::new);
 
         System.out.println("Max element is: " + maxElement);
     }
@@ -58,8 +76,8 @@ public class MaxElement {
         System.out.println("\napproach 4: using max and OptionalInt function");
 
         OptionalInt maxElement = numberList.stream()
-         .mapToInt(Integer::intValue)
-         .max();
+                .mapToInt(Integer::intValue)
+                .max();
 
         System.out.println("Max element is: " + maxElement.getAsInt());
 
@@ -69,13 +87,11 @@ public class MaxElement {
         System.out.println("\napproach 5: using max function and java 10");
 
         int maxElement = numberList.stream()
-        .mapToInt((Integer::intValue))
-        .max()
-        .orElseThrow();
+                .mapToInt((Integer::intValue))
+                .max()
+                .orElseThrow();
 
-
-        System.out.println("Max Element is: "+maxElement);
+        System.out.println("Max Element is: " + maxElement);
     }
-
 
 }
