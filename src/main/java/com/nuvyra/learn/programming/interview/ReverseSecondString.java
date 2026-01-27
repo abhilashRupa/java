@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-/* give an String "java coding" reverse only 2nd word from the input
+/*Deloitte:
+
+give an String "java coding" reverse only 2nd word from the input
 
 i/p: java coding
 o/p: java gnidoc
