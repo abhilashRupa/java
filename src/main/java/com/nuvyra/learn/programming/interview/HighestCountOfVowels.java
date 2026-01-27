@@ -22,8 +22,28 @@ public class HighestCountOfVowels {
     public static void main(String[] args) {
         List<String> str = Arrays.asList("Hi Candidate", "Welcome to Nttdata", "have a nice day");
 
-        approach1(str);
+        bestApproach(str);
         approach2(str);
+        approach3(str);
+
+    }
+
+    private static void approach3(List<String> str) {
+        System.out.println("\n approach 3");
+
+        String maxVowelsCount = str.stream()
+                .max(Comparator.comparingLong(HighestCountOfVowels::countVowels)).orElse(null);
+
+        System.out.println(maxVowelsCount);
+
+        System.out.println("\n approach 3.1 one liner");
+
+        String maxVowelsCountOneLine = str.stream()
+                .max(Comparator.comparingLong(s -> s.toLowerCase()
+                        .chars()
+                        .filter(ch -> "aeiou".indexOf(ch) != 1).count()))
+                .orElse(null);
+        System.out.println(maxVowelsCountOneLine);
 
     }
 
@@ -37,7 +57,7 @@ public class HighestCountOfVowels {
 
     }
 
-    private static void approach1(List<String> str) {
+    private static void bestApproach(List<String> str) {
 
         System.out.println("\n approach 1");
 
