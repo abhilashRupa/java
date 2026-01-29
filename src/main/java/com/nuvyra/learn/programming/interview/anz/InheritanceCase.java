@@ -1,5 +1,11 @@
 package com.nuvyra.learn.programming.interview.anz;
 
+/* 
+
+predicate the output for below code
+
+*/
+
 class Parent {
 
     public static void printMessage() {

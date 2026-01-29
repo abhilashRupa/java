@@ -10,6 +10,8 @@ public class StringEqual {
 
         System.out.println(s == s1);
         System.out.println(s.equals(s1));
+
+        System.out.println(10+20+"30"+40+50);
     }
 
 }
