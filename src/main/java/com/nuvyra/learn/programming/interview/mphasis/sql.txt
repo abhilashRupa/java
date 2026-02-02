@@ -1,0 +1,4 @@
+you have emp table with id, name, sal, location.
+
+1. find count of elements based on location.
+2. find second highest salary from table.

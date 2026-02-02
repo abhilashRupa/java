@@ -1,4 +1,4 @@
-package com.nuvyra.learn.programming.interview;
+package com.nuvyra.learn.programming.interview.mphasis;
 
 import java.util.Arrays;
 import java.util.List;
