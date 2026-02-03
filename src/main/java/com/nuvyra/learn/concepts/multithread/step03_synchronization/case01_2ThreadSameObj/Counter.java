@@ -2,9 +2,9 @@ package com.nuvyra.learn.concepts.multithread.step03_synchronization.case01_2Thr
 
 public class Counter {
 
-    synchronized void increment(){
+    synchronized void increment() {
         System.out.println(Thread.currentThread().getName() + " entered.. ");
-sleep();
+        sleep();
         System.out.println(Thread.currentThread().getName() + " existed.. ");
     }
 
