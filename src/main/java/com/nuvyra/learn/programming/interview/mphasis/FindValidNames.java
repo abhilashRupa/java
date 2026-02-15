@@ -29,6 +29,7 @@ public class FindValidNames {
 
     }
 
+    /* use the regex pattern matching for each element */
     private static void solution(String[] inputArr) {
 
         List<String> outputArr = Arrays.stream(inputArr)
