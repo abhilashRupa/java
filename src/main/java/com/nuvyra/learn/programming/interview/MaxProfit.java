@@ -32,7 +32,7 @@ Output: 10
 public class MaxProfit {
 
     public static void main(String[] args) {
-        int[] prices = { 1, 3, 6, 9, 11};
+        int[] prices = { 1, 3, 6, 9, 11 };
 
         // best solution
         solution1(prices);
@@ -40,14 +40,21 @@ public class MaxProfit {
         // for each variant
         solution2(prices);
 
+        // using math functions
+        solution3(prices);
+
+        // Best Time to Buy and Sell Stock II (Multiple Transactions)
+        solution4(prices);
+
     }
 
-    /* 
-    1. initialize the min with first element profit with 0
-    2. iterate over the price if current element is less than the min update min with i
-    3. if current element subtract with min grater than profit update the profit
-    
-    */
+    /*
+     * 1. initialize the min with first element profit with 0
+     * 2. iterate over the price if current element is less than the min update min
+     * with i
+     * 3. if current element subtract with min grater than profit update the profit
+     * 
+     */
 
     private static void solution1(int[] prices) {
 
@@ -83,6 +90,35 @@ public class MaxProfit {
         }
 
         System.out.println("maxProfit is using foreach loop: " + maxProfit);
+
+    }
+
+    private static void solution3(int[] prices) {
+
+        int min = Integer.MAX_VALUE;
+        int profit = 0;
+
+        for (int currentPrice : prices) {
+            min = Math.min(min, currentPrice);
+            profit = Math.max((currentPrice - min), profit);
+        }
+        System.out.println("maxProfit is using Math function: " + profit);
+
+    }
+
+    // Sum all positive differences between consecutive days using a greedy
+    // algorithm.
+    private static void solution4(int[] prices) {
+
+        int profit = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                profit += prices[i] - prices[i - 1];
+            }
+        }
+
+        System.out.println("max profit Multiple Transactions: "+ profit);
 
     }
 
