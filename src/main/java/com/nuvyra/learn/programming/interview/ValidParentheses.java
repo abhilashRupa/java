@@ -1,5 +1,7 @@
 package com.nuvyra.learn.programming.interview;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /* 
@@ -19,8 +21,11 @@ public class ValidParentheses {
 
         // using stack
         boolean output = solution(input);
+        System.out.println("input: " + input + " is Parentheses balanced using stack? : " + output);
 
-        System.out.println("input: " + input + " is Parentheses balanced? : " + output);
+        // using deque
+        boolean outputDeque = solutionDeque(input);
+        System.out.println("input: " + input + " is Parentheses balanced using deque? : " + output);
 
     }
 
@@ -34,11 +39,6 @@ public class ValidParentheses {
      * at end return stack is empty or not
      * 
      */
-
-    private static boolean solutionDeque(String input) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'solutionDeque'");
-    }
 
     private static boolean solution(String input) {
 
@@ -64,6 +64,25 @@ public class ValidParentheses {
                         || (character == ')' && lastElement != '(')) {
                     return false;
                 }
+            }
+        }
+
+        return characters.isEmpty();
+
+    }
+
+    private static boolean solutionDeque(String input) {
+
+        Deque<Character> characters = new LinkedList<>();
+
+        for (Character character : input.toCharArray()) {
+            if (character == '(' || character == '[' || character == '{') {
+                characters.addFirst(character);
+            } else if (!characters.isEmpty() &&
+                    character == ')' && characters.getFirst() == '(' ||
+                    character == '{' && characters.getFirst() == '}' ||
+                    character == '[' && characters.getFirst() == ']') {
+                characters.removeFirst();
             }
         }
 
