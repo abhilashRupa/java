@@ -24,6 +24,21 @@ public class FindGCD {
         int gcdOutputApproach2 = solution2(n1, n2);
         System.out.println("gcd calculation using Euclidean Algorithm, iterative approach: " + gcdOutputApproach2);
 
+        // using inbuilt function: not working need to check
+        /*
+         * int gcdOutputApproach3 = solution3(n1, n2);
+         * System.out.println("gcd calculation using inbuilt function: " +
+         * gcdOutputApproach3);
+         */
+    }
+
+    private static int solution1(int n1, int n2) {
+
+        if (n2 == 0)
+            return n1;
+
+        return solution1(n2, n1 % n2);
+
     }
 
     private static int solution2(int n1, int n2) {
@@ -38,13 +53,13 @@ public class FindGCD {
 
     }
 
-    private static int solution1(int n1, int n2) {
-
-        if (n2 == 0)
-            return n1;
-
-        return solution1(n2, n1 % n2);
-
-    }
+    // todo: need to fix gcd method is not resolved
+    /*
+     * private static int solution3(int n1, int n2) {
+     * 
+     * return Math.gcd(n1, n2);
+     * 
+     * }
+     */
 
 }
