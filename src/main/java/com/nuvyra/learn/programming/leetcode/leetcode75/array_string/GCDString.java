@@ -38,14 +38,18 @@ public class GCDString {
         String GCDOutput = approach1(word1, word2);
         System.out.println("Euclidean Algorithm, iterative approach: " + GCDOutput);
 
-      
+        // Recursive approach:
+        if (word1.concat(word2).equals(word2.concat(word1))) {
+            int GCDOutput2 = GCDOutput2 = approach2(word1.length(), word2.length());
+            System.out.println("Euclidean Algorithm, Recursive approach: " + word1.substring(0, GCDOutput2));
+        } else {
+            System.out.println("Euclidean Algorithm, Recursive approach: " + "");
+
+        }
+
     }
 
     private static String approach1(String word1, String word2) {
-
-        if (!word1.concat(word2).equals(word2.concat(word1))) {
-            return "";
-        }
 
         int word1Length = word1.length();
         int word2Length = word2.length();
@@ -59,6 +63,15 @@ public class GCDString {
         }
 
         return word1.substring(0, word1Length);
+
+    }
+
+    private static int approach2(int word1Length, int word2Length) {
+
+        if(word2Length == 0){
+            return word1Length;
+        }
+        return approach2(word2Length, word1Length%word2Length);
 
     }
 
