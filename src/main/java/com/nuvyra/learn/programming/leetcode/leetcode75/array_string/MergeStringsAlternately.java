@@ -46,9 +46,34 @@ public class MergeStringsAlternately {
         String word1 = "abc";
         String word2 = "pqr";
 
+        // best solution
+        String mergedString2 = solution2(word1, word2);
+        System.out.println("using for loop: "+mergedString2);
+
+
         // using while loop
         String mergedString = solution(word1, word2);
         System.out.println("using while loop: "+ mergedString);
+
+    }
+
+    private static String solution2(String word1, String word2) {
+
+        int maxLength = Math.max(word1.length(), word2.length());
+        StringBuilder outputBuilder = new StringBuilder();
+
+        for (int i = 0; i < maxLength; i++) {
+            if(i < word1.length()){
+                outputBuilder.append(word1.charAt(i));
+            }
+            if(i < word2.length()){
+                outputBuilder.append(word2.charAt(i));
+            }
+        }
+
+        return outputBuilder.toString();
+
+
 
     }
 
