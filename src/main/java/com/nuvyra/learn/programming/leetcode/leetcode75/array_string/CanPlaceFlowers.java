@@ -32,10 +32,34 @@ public class CanPlaceFlowers {
         int[] flowerbed = { 0, 0, 0, 0, 1, 0, 1 };
         int availablePlants = 1;
 
+        // best approach
+        boolean isAvailablePlantsEmpty2 = solution2(flowerbed, availablePlants);
+        System.out.println("solution using best approach: " + isAvailablePlantsEmpty2);
+
         // conditional approach not recommended
         boolean isAvailablePlantsEmpty = solution(flowerbed, availablePlants);
-        System.out.println("solution using normal approach"+isAvailablePlantsEmpty);
+        System.out.println("solution using normal approach: " + isAvailablePlantsEmpty);
 
+    }
+
+    private static boolean solution2(int[] flowerbed, int availablePlants) {
+        if (availablePlants == 0) {
+            return true;
+        }
+
+        for (int i = 0; i < flowerbed.length; i++) {
+            if (flowerbed[i] == 0 &&
+                    (i == 0 || flowerbed[i - 1] == 0) &&
+                    (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
+                flowerbed[i] = 1;
+                availablePlants--;
+                if (availablePlants == 0) {
+                    return true;
+                }
+            }
+        }
+
+        return availablePlants == 0;
     }
 
     private static boolean solution(int[] flowerbed, int availablePlants) {
@@ -71,7 +95,6 @@ public class CanPlaceFlowers {
             } else if (previous == 0 && current == 0 && next == 0) {
                 availablePlants--;
                 flowerbed[i] = 1;
-                System.out.println(availablePlants);
             }
 
             if (availablePlants == 0) {
